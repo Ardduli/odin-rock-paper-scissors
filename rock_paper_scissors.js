@@ -1,37 +1,64 @@
 const choiceArray = ['rock','paper','scissors'];
+let computerScore = 0;
+let playerScore = 0;
 
-function getComputerSelection(array) {
-    let computerSelection = array[Math.floor(Math.random()*array.length)];
-    return computerSelection;
+function getComputerSelection() {
+    return choiceArray[Math.floor(Math.random()*choiceArray.length)];
+    
 };
 
-function playRound(playerSelection, computerSelection){   
-            if (playerSelection == 'rock' && computerSelection == 'scissors'){
-            return "win";
-            } else  if(playerSelection == 'paper' && computerSelection == 'rock'){
-            return "win";
-            } else if (playerSelection == 'scissors' && computerSelection == 'paper'){
-            return "win";
-            } else if (playerSelection == 'scissors' && computerSelection == 'rock'){
-            return "lose";
-            }else if (playerSelection == 'paper' && computerSelection == 'scissors'){
-            return "lose";
-            }else if (playerSelection == 'rock' && computerSelection == 'paper'){
-            return "lose";
-            } else {return "tie"};
+function playRound(playerSelection, computerSelection){
+    
+
+    if (playerSelection === 'rock' && computerSelection === 'scissors'){
+        playerScore += 1;
+        return "win";
+    } else  if(playerSelection === 'paper' && computerSelection === 'rock'){
+        playerScore += 1;
+        return "win";
+    } else if (playerSelection === 'scissors' && computerSelection === 'paper'){
+        playerScore += 1;
+        return "win";
+    } else if (playerSelection === 'scissors' && computerSelection === 'rock'){
+        computerScore += 1;
+        return "lose";
+    }else if (playerSelection === 'paper' && computerSelection === 'scissors'){
+        computerScore += 1;
+        return "lose";
+    }else if (playerSelection === 'rock' && computerSelection === 'paper'){
+        computerScore += 1;
+        return "lose";
+    } else {return "tie"};
 }
 
-function declareWinner(winStatus){
+function roundWinner(winStatus,computerSelection,playerSelection){
     if (winStatus === "win"){
-        return(`You won ${playerSelection} beats ${computerSelection}.`);
+        return(`You won the round, ${playerSelection} beats ${computerSelection}.`);
     } else if(winStatus === "lose"){
-        return(`You lose ${computerSelection} beats ${playerSelection}`);
-    } else if(winStatus === "tie"){return("it is a tie");}
+        return(`You lose the round, ${computerSelection} beats ${playerSelection}`);
+    } else if(winStatus === "tie"){return("it is a tie, no-one wins");}
 };
 
+function scoreCheck(playerScore, computerScore){
+    if (playerScore > computerScore) {
+        return "You are the Winner";
+    } else if (computerScore > playerScore) {
+        return " You lost";
+    } else { return "It is a tie"}
+}
 
-const playerSelection = prompt("please enter rock, paper or scissors");
-const computerSelection = getComputerSelection(choiceArray);
-const winStatus = playRound(playerSelection,computerSelection);
-const winner = declareWinner(winStatus);
-console.log(winner)
+function game(roundNumber){
+
+    for (let roundNumber = 0; roundNumber < 5; roundNumber++) {
+        let computerSelection = getComputerSelection();
+        let playerSelection = prompt("please enter rock, paper or scissors");
+        let winStatus = playRound(computerSelection,playerSelection);
+        let roundWin = roundWinner(winStatus,computerSelection,playerSelection);
+        console.log(roundWin);
+        console.log(playerScore,computerScore)};
+    let winner = scoreCheck(playerScore,computerScore);
+    return winner
+   };
+
+let winner = game();
+console.warn(winner)
