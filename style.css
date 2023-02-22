@@ -1,0 +1,83 @@
+body{
+    display: flex;
+    justify-content: center;
+    background-color: #5AC3B0;
+    font-family: sans-serif;
+}
+
+#box{
+    color: #377a6e;
+    background-color: #F7CD46;
+    box-sizing: border-box;
+    height: 40vh;
+    width: 60vw;
+    border: 4px solid #DE5935;
+    border-radius: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 10vh;
+    min-height: 150px;
+    box-shadow: 5px 5px 5px #DE5935;
+}
+
+#title-container{
+    display: flex;
+    justify-content: center;
+    flex:1;
+}
+
+#btnContainer{
+    display: flex;
+    justify-content: space-around;
+    flex:5;
+}
+
+.buttons {
+    flex:1;
+    margin: 1vi;
+    border-radius: 1em;
+    font-size: 2em;
+    border-color: #DE5935;
+    box-shadow: 2px 2px 2px #DE5935;
+}
+#scoreTracker{
+    display: flex;
+    justify-content: space-around;
+    flex:1;
+}
+.score{
+    display: flex;
+    align-self: center;
+}
+
+#resultContainer{
+    display: flex;
+    flex:1;
+    align-items: stretch;
+    
+}
+
+#result {
+    display: flex;
+    flex: 3;
+    justify-content: center;
+    align-self: center;
+}
+
+#round{
+    text-align: center;
+    align-self: center;
+    flex: 1;
+    margin: 2px; 
+}
+
+.btmBorder{
+ border-bottom: 2px solid #DE5935;
+}
+
+h1{
+    display: inline;
+    margin: 0px;
+    padding: 0px;
+}
